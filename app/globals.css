@@ -6,7 +6,13 @@
   }
 
   .section-inner {
-    @apply max-w-6xl mx-auto px-4 lg:px-8 py-12 lg:py-20;
+    @apply max-w-6xl mx-auto px-4 py-12;
+  }
+
+  @media (min-width: 1024px) {
+    .section-inner {
+      @apply px-8 py-20;
+    }
   }
 
   .button-primary {
@@ -18,19 +24,43 @@
   }
 
   .heading-xl {
-    @apply text-4xl lg:text-6xl font-bold leading-[120%];
+    @apply text-4xl font-bold leading-[120%];
+  }
+
+  @media (min-width: 1024px) {
+    .heading-xl {
+      @apply text-6xl;
+    }
   }
 
   .heading-lg {
-    @apply text-3xl lg:text-4xl font-bold leading-[120%];
+    @apply text-3xl font-bold leading-[120%];
+  }
+
+  @media (min-width: 1024px) {
+    .heading-lg {
+      @apply text-4xl;
+    }
   }
 
   .heading-md {
-    @apply text-2xl lg:text-3xl font-semibold leading-[120%];
+    @apply text-2xl font-semibold leading-[120%];
+  }
+
+  @media (min-width: 1024px) {
+    .heading-md {
+      @apply text-3xl;
+    }
   }
 
   .subtext-md {
-    @apply text-lg lg:text-xl text-gray-700 leading-relaxed;
+    @apply text-lg text-gray-700 leading-relaxed;
+  }
+
+  @media (min-width: 1024px) {
+    .subtext-md {
+      @apply text-xl;
+    }
   }
 
   .card-service {

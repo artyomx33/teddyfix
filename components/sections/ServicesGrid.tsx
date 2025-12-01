@@ -1,11 +1,11 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import Link from "next/link";
 import { services } from "@/lib/content/home";
 import { WrenchIcon, SparkleIcon, FlagIcon, ChevronRightIcon } from "@/components/ui/Icons";
+import { GlowCard } from "@/components/ui/glow-card";
 
 const iconMap: Record<string, React.ReactNode> = {
   wrench: <WrenchIcon size={32} className="text-teddy" />,
@@ -42,7 +42,15 @@ export function ServicesGrid() {
               }}
             >
               <Link href={service.link.href} className="block h-full">
-                <div className="card-service h-full flex flex-col">
+                <GlowCard
+                  variant="teddy"
+                  glow={true}
+                  borderWidth={2}
+                  spread={25}
+                  proximity={150}
+                  inactiveZone={0.3}
+                  className="bg-white border-gray-200 h-full flex flex-col"
+                >
                   <div className="mb-4">
                     {iconMap[service.icon]}
                   </div>
@@ -56,7 +64,7 @@ export function ServicesGrid() {
                     {service.link.label}
                     <ChevronRightIcon size={16} className="transition-transform group-hover:translate-x-1" />
                   </span>
-                </div>
+                </GlowCard>
               </Link>
             </motion.div>
           ))}
