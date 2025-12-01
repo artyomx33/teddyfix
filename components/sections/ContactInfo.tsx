@@ -226,18 +226,28 @@ export function ContactInfo() {
             animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
-            <div className="rounded-xl overflow-hidden shadow-lg h-full min-h-[400px]">
-              <iframe
-                src={contactPage.infoBlock.mapEmbedUrl}
-                width="100%"
-                height="100%"
-                style={{ border: 0, minHeight: "500px" }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="TeddyFix Location Map"
-              />
-            </div>
+            <GlowCard
+              variant="teddy"
+              glow={true}
+              borderWidth={1}
+              spread={20}
+              proximity={150}
+              inactiveZone={0.3}
+              innerClassName="bg-white overflow-hidden"
+            >
+              <div className="rounded-lg overflow-hidden h-full min-h-[400px]">
+                <iframe
+                  src={contactPage.infoBlock.mapEmbedUrl}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0, minHeight: "500px" }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="TeddyFix Location Map"
+                />
+              </div>
+            </GlowCard>
           </motion.div>
         </div>
       </div>
