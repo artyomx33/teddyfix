@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { MenuIcon, XIcon } from "@/components/ui/Icons";
+import { Button } from "@/components/ui/Button";
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -37,12 +38,14 @@ export function Header() {
                 {item.name}
               </Link>
             ))}
-            <a
+            <Button
               href="https://wa.me/31612345678"
-              className="button-primary text-sm"
+              className="text-sm"
+              external
+              glowEffect
             >
               Book Now
-            </a>
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -70,12 +73,14 @@ export function Header() {
                   {item.name}
                 </Link>
               ))}
-              <a
+              <Button
                 href="https://wa.me/31612345678"
-                className="button-primary text-center mt-2"
+                className="text-center mt-2"
+                external
+                glowEffect
               >
                 Book Now
-              </a>
+              </Button>
             </div>
           </div>
         )}
