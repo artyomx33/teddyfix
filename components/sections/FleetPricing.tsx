@@ -42,11 +42,7 @@ export function FleetPricing() {
                 spread={25}
                 proximity={150}
                 inactiveZone={0.3}
-                className={`relative h-full ${
-                  plan.featured
-                    ? "bg-black text-white ring-2 ring-teddy"
-                    : "bg-white text-black"
-                }`}
+                innerClassName={plan.featured ? "bg-black text-white ring-2 ring-teddy" : "bg-white text-black"}
               >
                 {plan.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-teddy text-white text-xs font-semibold px-3 py-1 rounded-full z-20">
