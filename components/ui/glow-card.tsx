@@ -27,7 +27,7 @@ export const GlowCard = ({
   return (
     <div
       className={cn(
-        "relative h-full w-full rounded-xl border border-zinc-800 bg-zinc-900 overflow-hidden",
+        "relative h-full w-full rounded-xl bg-zinc-900 overflow-hidden",
         className
       )}
     >

@@ -49,7 +49,7 @@ export function ServicesGrid() {
                   spread={25}
                   proximity={150}
                   inactiveZone={0.3}
-                  className="bg-white border-gray-200 h-full flex flex-col"
+                  className="bg-white h-full flex flex-col"
                 >
                   <div className="mb-4">
                     {iconMap[service.icon]}
