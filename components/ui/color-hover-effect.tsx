@@ -253,8 +253,8 @@ const ColorHoverEffect = memo(
               "after:opacity-[var(--active)] after:transition-opacity after:duration-300",
               "after:[mask-clip:padding-box,border-box]",
               "after:[-webkit-mask-clip:padding-box,border-box]",
-              "after:[mask-composite:intersect]",
-              "after:[-webkit-mask-composite:xor]",
+              "after:[mask-composite:exclude]",
+              "after:[-webkit-mask-composite:source-in]",
               "after:[mask-image:linear-gradient(#0000,#0000),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),#00000000_0deg,#fff,#00000000_calc(var(--spread)*2deg))]",
               "after:[-webkit-mask-image:linear-gradient(#0000,#0000),conic-gradient(from_calc((var(--start)-var(--spread))*1deg),#00000000_0deg,#fff,#00000000_calc(var(--spread)*2deg))]"
             )}
