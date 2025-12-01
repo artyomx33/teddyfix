@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { aboutPage } from "@/lib/content/about";
 
 export function AboutHero() {

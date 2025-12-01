@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { finalCta } from "@/lib/content/home";
@@ -27,6 +26,7 @@ export function CallToAction() {
                 key={button.label}
                 href={button.href}
                 variant={index === 0 ? "primary" : "secondary"}
+                glowEffect={index === 0}
               >
                 {button.label}
               </Button>

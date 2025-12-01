@@ -1,8 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import { GlowCard } from "@/components/ui/glow-card";
 import { fleetPage } from "@/lib/content/fleet";
 
 export function FleetBenefits() {
@@ -32,24 +32,36 @@ export function FleetBenefits() {
                 delay: index * 0.1,
                 ease: "easeOut",
               }}
-              className="flex items-start gap-4 p-6 bg-gray-50 rounded-lg"
+              className="h-full"
             >
-              <span className="flex-shrink-0 w-8 h-8 rounded-full bg-teddy/10 flex items-center justify-center">
-                <svg
-                  className="w-4 h-4 text-teddy"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={3}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-              </span>
-              <span className="text-gray-700 font-medium">{benefit}</span>
+              <GlowCard
+                variant="teddy"
+                glow={true}
+                borderWidth={1}
+                spread={20}
+                proximity={150}
+                inactiveZone={0.3}
+                className="relative h-full bg-white"
+              >
+                <div className="flex items-start gap-4 p-6">
+                  <span className="flex-shrink-0 w-8 h-8 rounded-full bg-teddy/10 flex items-center justify-center">
+                    <svg
+                      className="w-4 h-4 text-teddy"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={3}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </span>
+                  <span className="text-gray-700 font-medium">{benefit}</span>
+                </div>
+              </GlowCard>
             </motion.div>
           ))}
         </div>

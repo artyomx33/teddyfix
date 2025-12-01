@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
 import { aboutPage } from "@/lib/content/about";
 import { WrenchIcon, FlagIcon } from "@/components/ui/Icons";

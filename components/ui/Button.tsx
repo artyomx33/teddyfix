@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ColorHoverEffect } from "@/components/ui/color-hover-effect";
 
 interface ButtonProps {
   variant?: "primary" | "secondary";
@@ -9,6 +10,7 @@ interface ButtonProps {
   children: React.ReactNode;
   className?: string;
   external?: boolean;
+  glowEffect?: boolean;
 }
 
 export function Button({
@@ -18,9 +20,25 @@ export function Button({
   children,
   className = "",
   external = false,
+  glowEffect = false,
 }: ButtonProps) {
   const baseClass = variant === "primary" ? "button-primary" : "button-secondary";
-  const combinedClass = `${baseClass} ${className}`.trim();
+  const combinedClass = `${baseClass} ${className} ${glowEffect ? "relative overflow-hidden" : ""}`.trim();
+
+  const content = (
+    <>
+      {glowEffect && (
+        <ColorHoverEffect
+          variant="teddy"
+          glow={true}
+          borderWidth={2}
+          spread={15}
+          proximity={50}
+        />
+      )}
+      <span className={glowEffect ? "relative z-10" : ""}>{children}</span>
+    </>
+  );
 
   if (href) {
     if (external || href.startsWith("http") || href.startsWith("tel:") || href.startsWith("https://wa.me")) {
@@ -31,20 +49,20 @@ export function Button({
           target={external ? "_blank" : undefined}
           rel={external ? "noopener noreferrer" : undefined}
         >
-          {children}
+          {content}
         </a>
       );
     }
     return (
       <Link href={href} className={combinedClass}>
-        {children}
+        {content}
       </Link>
     );
   }
 
   return (
     <button onClick={onClick} className={combinedClass}>
-      {children}
+      {content}
     </button>
   );
 }

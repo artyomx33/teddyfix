@@ -1,9 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
+import { GlowCard } from "@/components/ui/glow-card";
 import { fleetPage } from "@/lib/content/fleet";
 
 export function FleetPricing() {
@@ -33,67 +33,77 @@ export function FleetPricing() {
                 delay: index * 0.15,
                 ease: "easeOut",
               }}
-              className={`relative rounded-xl p-6 lg:p-8 ${
-                plan.featured
-                  ? "bg-black text-white ring-2 ring-teddy"
-                  : "bg-white border border-gray-200"
-              }`}
+              className="h-full"
             >
-              {plan.featured && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-teddy text-white text-xs font-semibold px-3 py-1 rounded-full">
-                  Most Popular
+              <GlowCard
+                variant="teddy"
+                glow={true}
+                borderWidth={2}
+                spread={25}
+                proximity={150}
+                inactiveZone={0.3}
+                className={`relative h-full ${
+                  plan.featured
+                    ? "bg-black text-white ring-2 ring-teddy"
+                    : "bg-white text-black"
+                }`}
+              >
+                {plan.featured && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-teddy text-white text-xs font-semibold px-3 py-1 rounded-full z-20">
+                    Most Popular
+                  </div>
+                )}
+
+                <div className="text-center mb-6">
+                  <h3
+                    className={`text-xl font-bold mb-1 ${
+                      plan.featured ? "text-white" : "text-black"
+                    }`}
+                  >
+                    {plan.label}
+                  </h3>
+                  <p
+                    className={`text-sm ${
+                      plan.featured ? "text-gray-300" : "text-gray-500"
+                    }`}
+                  >
+                    {plan.subtitle}
+                  </p>
                 </div>
-              )}
 
-              <div className="text-center mb-6">
-                <h3
-                  className={`text-xl font-bold mb-1 ${
-                    plan.featured ? "text-white" : "text-black"
-                  }`}
-                >
-                  {plan.label}
-                </h3>
-                <p
-                  className={`text-sm ${
-                    plan.featured ? "text-gray-300" : "text-gray-500"
-                  }`}
-                >
-                  {plan.subtitle}
-                </p>
-              </div>
-
-              <ul className="space-y-3">
-                {plan.perks.map((perk, i) => (
-                  <li key={i} className="flex items-start gap-3">
-                    <span
-                      className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
-                        plan.featured ? "bg-teddy/20" : "bg-teddy/10"
-                      }`}
-                    >
-                      <svg
-                        className="w-3 h-3 text-teddy"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={3}
+                <ul className="space-y-3">
+                  {plan.perks.map((perk, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <span
+                        className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
+                          plan.featured ? "bg-teddy/20" : "bg-teddy/10"
+                        }`}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                    </span>
-                    <span
-                      className={`text-sm ${
-                        plan.featured ? "text-gray-200" : "text-gray-600"
-                      }`}
-                    >
-                      {perk}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+                        <svg
+                          className="w-3 h-3 text-teddy"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                          strokeWidth={3}
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M5 13l4 4L19 7"
+                          />
+                        </svg>
+                      </span>
+                      <span
+                        className={`text-sm ${
+                          plan.featured ? "text-gray-200" : "text-gray-600"
+                        }`}
+                      >
+                        {perk}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </GlowCard>
             </motion.div>
           ))}
         </div>
@@ -104,7 +114,7 @@ export function FleetPricing() {
           transition={{ duration: 0.6, delay: 0.5, ease: "easeOut" }}
           className="text-center"
         >
-          <Button href={fleetPage.pricing.cta.href} variant="primary">
+          <Button href={fleetPage.pricing.cta.href} variant="primary" glowEffect>
             {fleetPage.pricing.cta.label}
           </Button>
         </motion.div>
