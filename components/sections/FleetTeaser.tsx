@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { fleet } from "@/lib/content/home";
@@ -24,7 +23,7 @@ export function FleetTeaser() {
             <p className="text-gray-300 text-lg leading-relaxed whitespace-pre-line mb-8">
               {fleet.body}
             </p>
-            <Button href={fleet.cta.href} variant="primary" className="bg-teddy hover:bg-teddy/90">
+            <Button href={fleet.cta.href} variant="primary" className="bg-teddy hover:bg-teddy/90" glowEffect>
               {fleet.cta.label}
             </Button>
           </motion.div>

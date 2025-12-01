@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { prePurchaseInspection } from "@/lib/content/services";
@@ -164,6 +163,7 @@ export function PrePurchaseInspection() {
               href={prePurchaseInspection.cta.href}
               variant="primary"
               className="w-full bg-teddy hover:bg-teddy/90"
+              glowEffect
             >
               {prePurchaseInspection.cta.label}
             </Button>

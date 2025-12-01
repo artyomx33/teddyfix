@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { fleetPage } from "@/lib/content/fleet";
@@ -34,6 +33,7 @@ export function FleetCTA() {
                     ? "bg-teddy hover:bg-teddy/90"
                     : "border-white text-white hover:bg-white hover:text-black"
                 }
+                glowEffect={index === 0}
               >
                 {button.label}
               </Button>

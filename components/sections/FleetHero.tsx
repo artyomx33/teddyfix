@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { fleetPage } from "@/lib/content/fleet";
@@ -46,6 +46,7 @@ export function FleetHero() {
             href={fleetPage.hero.cta.href}
             variant="primary"
             className="bg-teddy hover:bg-teddy/90"
+            glowEffect
           >
             {fleetPage.hero.cta.label}
           </Button>

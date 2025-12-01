@@ -1,7 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
 import { WrenchIcon, SparkleIcon, FlagIcon } from "@/components/ui/Icons";
@@ -57,7 +56,7 @@ export function ServiceSection({
             <div className="mb-4">{iconMap[icon]}</div>
             <h2 className="heading-lg text-black mb-4">{title}</h2>
             <p className="subtext-md mb-6">{intro}</p>
-            <Button href={cta.href} variant="primary">
+            <Button href={cta.href} variant="primary" glowEffect>
               {cta.label}
             </Button>
           </motion.div>
