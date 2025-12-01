@@ -39,7 +39,7 @@ export const GlowCard = ({
         proximity={proximity}
         inactiveZone={inactiveZone}
       />
-      <div className="relative z-10 h-full rounded-lg border border-white bg-zinc-900 overflow-hidden">
+      <div className="relative z-10 h-full rounded-lg border border-white bg-white overflow-hidden">
         <div className="h-full p-6">
           {children}
         </div>
