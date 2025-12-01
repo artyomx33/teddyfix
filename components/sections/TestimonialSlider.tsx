@@ -1,10 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { testimonials } from "@/lib/content/home";
 import { StarIcon } from "@/components/ui/Icons";
+import { GlowCard } from "@/components/ui/glow-card";
 
 export function TestimonialSlider() {
   const ref = useRef(null);
@@ -34,7 +34,15 @@ export function TestimonialSlider() {
                 ease: "easeOut",
               }}
             >
-              <div className="testimonial-card h-full flex flex-col">
+              <GlowCard
+                variant="teddy"
+                glow={true}
+                borderWidth={1}
+                spread={20}
+                proximity={100}
+                inactiveZone={0.5}
+                className="h-full"
+              >
                 {/* Stars */}
                 <div className="flex gap-1 mb-4">
                   {[...Array(5)].map((_, i) => (
@@ -52,7 +60,7 @@ export function TestimonialSlider() {
                   <p className="font-semibold text-black">{testimonial.name}</p>
                   <p className="text-sm text-gray-500">{testimonial.role}</p>
                 </div>
-              </div>
+              </GlowCard>
             </motion.div>
           ))}
         </div>
