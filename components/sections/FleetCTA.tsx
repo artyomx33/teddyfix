@@ -33,7 +33,7 @@ export function FleetCTA() {
                     ? "bg-teddy hover:bg-teddy/90"
                     : "border-white text-white hover:bg-white hover:text-black"
                 }
-                glowEffect={index === 0}
+                glowEffect={true}
               >
                 {button.label}
               </Button>
