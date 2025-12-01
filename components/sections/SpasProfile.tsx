@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
+import { GlowCard } from "@/components/ui/glow-card";
 import { aboutPage } from "@/lib/content/about";
 import { WrenchIcon, FlagIcon } from "@/components/ui/Icons";
 
@@ -134,33 +135,42 @@ export function SpasProfile() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, ease: "easeOut" }}
-                className="bg-gray-50 rounded-xl p-6 border border-gray-200"
               >
-                <h3 className="text-xl font-semibold text-black mb-4">
-                  {activeTabContent.content.title}
-                </h3>
-                <ul className="space-y-3">
-                  {activeTabContent.content.points.map((point, index) => (
-                    <li key={index} className="flex items-start gap-3">
-                      <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teddy/10 flex items-center justify-center mt-0.5">
-                        <svg
-                          className="w-3 h-3 text-teddy"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={3}
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
-                      </span>
-                      <span className="text-gray-700">{point}</span>
-                    </li>
-                  ))}
-                </ul>
+                <GlowCard
+                  variant="teddy"
+                  glow={true}
+                  borderWidth={1}
+                  spread={20}
+                  proximity={150}
+                  inactiveZone={0.3}
+                  innerClassName="bg-white text-black"
+                >
+                  <h3 className="text-xl font-semibold text-black mb-4">
+                    {activeTabContent.content.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {activeTabContent.content.points.map((point, index) => (
+                      <li key={index} className="flex items-start gap-3">
+                        <span className="flex-shrink-0 w-5 h-5 rounded-full bg-teddy/10 flex items-center justify-center mt-0.5">
+                          <svg
+                            className="w-3 h-3 text-teddy"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={3}
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              d="M5 13l4 4L19 7"
+                            />
+                          </svg>
+                        </span>
+                        <span className="text-gray-700">{point}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </GlowCard>
               </motion.div>
             )}
           </motion.div>
