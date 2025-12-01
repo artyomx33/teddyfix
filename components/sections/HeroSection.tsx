@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import { hero } from "@/lib/content/home";
@@ -44,6 +44,7 @@ export function HeroSection() {
               href={hero.ctaPrimary.href}
               variant="primary"
               className="bg-teddy hover:bg-teddy/90"
+              glowEffect
             >
               {hero.ctaPrimary.label}
             </Button>
@@ -51,6 +52,7 @@ export function HeroSection() {
               href={hero.ctaSecondary.href}
               variant="secondary"
               className="border-white text-white hover:bg-white hover:text-black"
+              glowEffect
             >
               {hero.ctaSecondary.label}
             </Button>
