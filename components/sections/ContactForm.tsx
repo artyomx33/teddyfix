@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "motion/react";
 import { useRef, useState } from "react";
+import { GlowCard } from "@/components/ui/glow-card";
 import { contactPage } from "@/lib/content/contact";
 
 export function ContactForm() {
@@ -42,112 +43,122 @@ export function ContactForm() {
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
           >
-            {isSubmitted ? (
-              <div className="bg-white rounded-xl p-8 text-center border border-gray-200">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
-                  <svg
-                    className="w-8 h-8 text-green-600"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-xl font-semibold text-black mb-2">
-                  Message Sent!
-                </h3>
-                <p className="text-gray-600">
-                  {contactPage.formBlock.successMessage}
-                </p>
-              </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="bg-white rounded-xl p-8 border border-gray-200 space-y-6"
-              >
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="block text-sm font-medium text-gray-700 mb-2"
+            <GlowCard
+              variant="teddy"
+              glow={true}
+              borderWidth={1}
+              spread={20}
+              proximity={150}
+              inactiveZone={0.3}
+              innerClassName="bg-white text-black"
+            >
+              {isSubmitted ? (
+                <div className="text-center py-4">
+                  <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-green-100 flex items-center justify-center">
+                    <svg
+                      className="w-8 h-8 text-green-600"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
                     >
-                      {contactPage.formBlock.fields.name}
-                    </label>
-                    <input
-                      type="text"
-                      id="name"
-                      name="name"
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teddy focus:border-teddy transition-colors"
-                      placeholder="John Doe"
-                    />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
                   </div>
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="block text-sm font-medium text-gray-700 mb-2"
-                    >
-                      {contactPage.formBlock.fields.email}
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teddy focus:border-teddy transition-colors"
-                      placeholder="john@example.com"
-                    />
-                  </div>
+                  <h3 className="text-xl font-semibold text-black mb-2">
+                    Message Sent!
+                  </h3>
+                  <p className="text-gray-600">
+                    {contactPage.formBlock.successMessage}
+                  </p>
                 </div>
-
-                <div>
-                  <label
-                    htmlFor="phone"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    {contactPage.formBlock.fields.phone}
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teddy focus:border-teddy transition-colors"
-                    placeholder="+31 6 1234 5678"
-                  />
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-sm font-medium text-gray-700 mb-2"
-                  >
-                    {contactPage.formBlock.fields.message}
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teddy focus:border-teddy transition-colors resize-none"
-                    placeholder="Tell us about your car issue, service needs, or questions..."
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="button-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+              ) : (
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-6"
                 >
-                  {isSubmitting ? "Sending..." : contactPage.formBlock.submitLabel}
-                </button>
-              </form>
-            )}
+                  <div className="grid md:grid-cols-2 gap-6">
+                    <div>
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
+                        {contactPage.formBlock.fields.name}
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teddy focus:border-teddy transition-colors"
+                        placeholder="John Doe"
+                      />
+                    </div>
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="block text-sm font-medium text-gray-700 mb-2"
+                      >
+                        {contactPage.formBlock.fields.email}
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teddy focus:border-teddy transition-colors"
+                        placeholder="john@example.com"
+                      />
+                    </div>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      {contactPage.formBlock.fields.phone}
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teddy focus:border-teddy transition-colors"
+                      placeholder="+31 6 1234 5678"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="message"
+                      className="block text-sm font-medium text-gray-700 mb-2"
+                    >
+                      {contactPage.formBlock.fields.message}
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={5}
+                      className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-teddy focus:border-teddy transition-colors resize-none"
+                      placeholder="Tell us about your car issue, service needs, or questions..."
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="button-primary w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                  >
+                    {isSubmitting ? "Sending..." : contactPage.formBlock.submitLabel}
+                  </button>
+                </form>
+              )}
+            </GlowCard>
           </motion.div>
         </div>
       </div>

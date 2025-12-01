@@ -26,7 +26,7 @@ export function AboutCTA() {
                 key={button.label}
                 href={button.href}
                 variant={index === 0 ? "primary" : "secondary"}
-                glowEffect={index === 0}
+                glowEffect={true}
               >
                 {button.label}
               </Button>
