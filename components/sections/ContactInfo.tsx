@@ -233,20 +233,18 @@ export function ContactInfo() {
               spread={20}
               proximity={150}
               inactiveZone={0.3}
-              innerClassName="bg-white overflow-hidden"
+              innerClassName="bg-white p-0"
             >
-              <div className="rounded-lg overflow-hidden h-full min-h-[400px]">
-                <iframe
-                  src={contactPage.infoBlock.mapEmbedUrl}
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0, minHeight: "500px" }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="TeddyFix Location Map"
-                />
-              </div>
+              <iframe
+                src={contactPage.infoBlock.mapEmbedUrl}
+                width="100%"
+                height="100%"
+                style={{ border: 0, minHeight: "500px", borderRadius: "0.5rem" }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="TeddyFix Location Map"
+              />
             </GlowCard>
           </motion.div>
         </div>
