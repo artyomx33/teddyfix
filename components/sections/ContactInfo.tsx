@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import { Button } from "@/components/ui/Button";
 import { GlowCard } from "@/components/ui/glow-card";
 import { contactPage } from "@/lib/content/contact";
 import { MapPinIcon, PhoneIcon } from "@/components/ui/Icons";
@@ -209,13 +210,15 @@ export function ContactInfo() {
                 <p className="text-gray-600 text-sm mb-4">
                   {contactPage.quickContact.photoCta.description}
                 </p>
-                <a
+                <Button
                   href={contactPage.quickContact.whatsappCta.href}
-                  className="button-primary inline-flex items-center gap-2 bg-teddy hover:bg-teddy/90"
+                  variant="primary"
+                  glowEffect={true}
+                  className="inline-flex items-center gap-2 bg-teddy hover:bg-teddy/90"
                 >
                   <MessageCircleIcon size={18} />
                   {contactPage.quickContact.whatsappCta.label}
-                </a>
+                </Button>
               </GlowCard>
             </motion.div>
           </motion.div>
