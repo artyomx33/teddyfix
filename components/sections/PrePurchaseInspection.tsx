@@ -3,6 +3,7 @@
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { Button } from "@/components/ui/Button";
+import { GlowCard } from "@/components/ui/glow-card";
 import { prePurchaseInspection } from "@/lib/content/services";
 import { WrenchIcon } from "@/components/ui/Icons";
 
@@ -110,13 +111,23 @@ export function PrePurchaseInspection() {
                 delay: index * 0.1,
                 ease: "easeOut",
               }}
-              className="bg-white/5 rounded-xl p-6 border border-white/10"
+              className="h-full"
             >
-              <div className="w-10 h-10 rounded-lg bg-teddy/20 flex items-center justify-center mb-4">
-                {featureIcons[feature.icon]}
-              </div>
-              <h3 className="font-semibold text-white mb-2">{feature.title}</h3>
-              <p className="text-gray-400 text-sm">{feature.description}</p>
+              <GlowCard
+                variant="teddy"
+                glow={true}
+                borderWidth={1}
+                spread={20}
+                proximity={150}
+                inactiveZone={0.3}
+                innerClassName="bg-white/5 text-white border border-white/10"
+              >
+                <div className="w-10 h-10 rounded-lg bg-teddy/20 flex items-center justify-center mb-4">
+                  {featureIcons[feature.icon]}
+                </div>
+                <h3 className="font-semibold text-white mb-2">{feature.title}</h3>
+                <p className="text-gray-400 text-sm">{feature.description}</p>
+              </GlowCard>
             </motion.div>
           ))}
         </div>
