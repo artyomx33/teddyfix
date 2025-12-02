@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import { GlowCard } from "@/components/ui/glow-card";
 import { aboutPage } from "@/lib/content/about";
 
 export function AboutIntro() {
@@ -29,14 +30,24 @@ export function AboutIntro() {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-            className="mt-12 bg-white rounded-xl p-8 border-l-4 border-teddy"
+            className="mt-12"
           >
-            <blockquote className="text-xl text-gray-800 italic mb-4">
-              &ldquo;{aboutPage.intro.quote.text}&rdquo;
-            </blockquote>
-            <p className="text-teddy font-semibold">
-              — {aboutPage.intro.quote.author}
-            </p>
+            <GlowCard
+              variant="teddy"
+              glow={true}
+              borderWidth={2}
+              spread={25}
+              proximity={150}
+              inactiveZone={0.3}
+              innerClassName="bg-white text-black"
+            >
+              <blockquote className="text-xl text-gray-800 italic mb-4">
+                &ldquo;{aboutPage.intro.quote.text}&rdquo;
+              </blockquote>
+              <p className="text-teddy font-semibold">
+                — {aboutPage.intro.quote.author}
+              </p>
+            </GlowCard>
           </motion.div>
         </div>
       </div>
