@@ -2,6 +2,7 @@
 
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
+import { GlowCard } from "@/components/ui/glow-card";
 import { fleetPage } from "@/lib/content/fleet";
 import {
   WrenchIcon,
@@ -106,12 +107,24 @@ export function FleetServices() {
                 delay: index * 0.1,
                 ease: "easeOut",
               }}
-              className="flex items-start gap-4 p-6 border border-gray-200 rounded-lg hover:shadow-md transition-shadow"
+              className="h-full"
             >
-              <span className="flex-shrink-0 w-12 h-12 rounded-lg bg-teddy/10 flex items-center justify-center">
-                {iconMap[service.icon]}
-              </span>
-              <span className="text-gray-700">{service.text}</span>
+              <GlowCard
+                variant="teddy"
+                glow={true}
+                borderWidth={1}
+                spread={20}
+                proximity={150}
+                inactiveZone={0.3}
+                innerClassName="bg-white text-black"
+              >
+                <div className="flex items-start gap-4">
+                  <span className="flex-shrink-0 w-12 h-12 rounded-lg bg-teddy/10 flex items-center justify-center">
+                    {iconMap[service.icon]}
+                  </span>
+                  <span className="text-gray-700">{service.text}</span>
+                </div>
+              </GlowCard>
             </motion.div>
           ))}
         </div>
