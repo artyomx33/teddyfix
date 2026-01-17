@@ -3,6 +3,9 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { GoogleAnalytics } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -42,6 +45,9 @@ export default function RootLayout({
         <Header />
         {children}
         <Footer />
+        <GoogleAnalytics gaId="G-DC4WPV95H9" />
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
